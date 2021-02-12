@@ -1,0 +1,124 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay" *ngIf="(user | async) as user">
+
+            <ion-content>
+
+                <ion-list id="inbox-list">
+                    <ion-item>
+                        <ion-avatar slot="start">
+                            <img [src]="user.photoURL" />
+                        </ion-avatar>
+                        <ion-label>
+                            <ion-list-header>{{user.displayName}}</ion-list-header>
+                            <ion-note>{{user.email}}</ion-note>
+                        </ion-label>
+                    </ion-item>
+
+                    <div *ngIf="user?.rol == 'employee'">
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 100" routerDirection="root" [routerLink]="'inicio-e'" lines="none" detail="false" [class.selected]="selectedIndex == 100">
+                                <ion-icon slot="start" ios="home-outline" md="home-sharp"></ion-icon>
+                                <ion-label>Inicio</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </div>
+
+                    <div *ngIf="user?.rol == 'user'">
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 100" routerDirection="root" [routerLink]="'inicio'" lines="none" detail="false" [class.selected]="selectedIndex == 100">
+                                <ion-icon slot="start" ios="home-outline" md="home-sharp"></ion-icon>
+                                <ion-label>Inicio</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </div>
+
+                    <ion-menu-toggle id="labels-list">
+                        <ion-item (click)="perfil(user.uid)" routerDirection="root" lines="none" detail="false" [class.selected]="selectedIndex == 103">
+                            <ion-icon slot="start" ios="person-outline" md="person-sharp"></ion-icon>
+                            <ion-label>Perfil</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+
+                    <!--ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                            <ion-label>{{ p.title }}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle-->
+
+                    <div *ngIf="user?.rol == 'employee'">
+                        <!--ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 101" routerDirection="root" [routerLink]="'respuestas'" lines="none" detail="false" [class.selected]="selectedIndex == 101">
+                                <ion-icon slot="start" ios="warning-outline" md="warning-sharp"></ion-icon>
+                                <ion-label>Mis Respuestas</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle-->
+
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 102" routerDirection="root" [routerLink]="'mis-trabajos'" lines="none" detail="false" [class.selected]="selectedIndex == 102">
+                                <ion-icon slot="start" ios="time-outline" md="time-sharp"></ion-icon>
+                                <ion-label>Próximos Trabajos</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </div>
+
+                    <div *ngIf="user?.rol == 'user'">
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 101" routerDirection="root" [routerLink]="'solicitudes'" lines="none" detail="false" [class.selected]="selectedIndex == 101">
+                                <ion-icon slot="start" ios="warning-outline" md="warning-sharp"></ion-icon>
+                                <ion-label>Mis Solicitudes</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 102" routerDirection="root" [routerLink]="'trabajos'" lines="none" detail="false" [class.selected]="selectedIndex == 102">
+                                <ion-icon slot="start" ios="time-outline" md="time-sharp"></ion-icon>
+                                <ion-label>Próximas Citas</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </div>
+                </ion-list>
+
+                <ion-list id="labels-list">
+                    <ion-item (click)="logout()">
+                        <ion-icon slot="start" ios="warning-outline" md="log-out"></ion-icon>
+                        <ion-label>Logout</ion-label>
+                    </ion-item>
+                </ion-list>
+
+                <ion-list id="labels-list">
+                    <ion-menu-toggle id="labels-list">
+                        <ion-item (click)="selectedIndex = 104" routerDirection="root" [routerLink]="'about'" lines="none" detail="false" [class.selected]="selectedIndex == 104">
+                            <ion-icon slot="start" ios="alert-circle-outline" md="alert-circle-sharp"></ion-icon>
+                            <ion-label>Acerca De</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+
+                <div *ngIf="user?.rol == 'user'">
+                    <ion-list id="labels-list">
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'tutorial'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
+                                <ion-icon slot="start" ios="help-outline" md="help-sharp"></ion-icon>
+                                <ion-label>Ayuda</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </ion-list>
+                </div>
+
+                <div *ngIf="user?.rol == 'employee'">
+                    <ion-list id="labels-list">
+                        <ion-menu-toggle id="labels-list">
+                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'tutorial-empresas'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
+                                <ion-icon slot="start" ios="help-outline" md="help-sharp"></ion-icon>
+                                <ion-label>Ayuda</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </ion-list>
+                </div>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

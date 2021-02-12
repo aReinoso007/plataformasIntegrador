@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mis Solicitudes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item *ngIf="no_solicitudes == 0">
+            <ion-label>No tienes solicitudes pendientes</ion-label>
+        </ion-item>
+
+        <ion-item *ngFor='let solicitud of solicitudes |async; trackBy: trackByFn' (click)="abrirSolicitud(solicitud.uid)">
+            <ion-thumbnail slot="start">
+                <ion-img [src]="solicitud.galeria_antes[0]"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+                <ion-label class="ion-text-wrap">{{solicitud.descripcion}}</ion-label>
+                <h2>{{solicitud.fecha_inicio}}</h2>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
