@@ -5,14 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyBrZe7ixa8B5jK8uxKaKQ8HX3ckDHKtskM",
-    authDomain: "contactosdb-e7de3.firebaseapp.com",
-    databaseURL: "https://contactosdb-e7de3.firebaseio.com",
-    projectId: "contactosdb-e7de3",
-    storageBucket: "contactosdb-e7de3.appspot.com",
-    messagingSenderId: "509137366255",
-    appId: "1:509137366255:web:aff2e989a01755f18a7f1a",
-    measurementId: "G-TTJ7GEQL31"
+    apiKey: "AIzaSyC2qh4ROfrban3PPqRZuTkbR5pvwASIpWA",
+    authDomain: "pronear-me.firebaseapp.com",
+    projectId: "pronear-me",
+    storageBucket: "pronear-me.appspot.com",
+    messagingSenderId: "902988809163",
+    appId: "1:902988809163:web:265fa06ac8de025b266c4e"
   },
   googleWebClientId: '509137366255-q369c38c4148702qlqk4vk91b7g7k2tb.apps.googleusercontent.com'
 };
