@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>direccion</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img class="logo" src=" assets/registro.jpg ">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        <ion-item>
+            <ion-label position="floating">Genero</ion-label>
+            <ion-select [(ngModel)]="info.genero">
+              <ion-select-option value="Masculino">Masculino</ion-select-option>
+              <ion-select-option value="Femenino">Femenino</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Calle Principal</ion-label>
+            <ion-input type="text" [(ngModel)]="info.callePrincipal"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Calle Secundaria</ion-label>
+            <ion-input type="text" [(ngModel)]="info.calleSecundaria"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Referencia</ion-label>
+            <ion-input required type="text" [(ngModel)]="info.referencia"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Numero de casa</ion-label>
+            <ion-input required type="text" [(ngModel)]="info.numeroCasa"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <div class="ion-padding">
+        <ion-button expand="block" type="submit" (click)="addUserInfo()" class="ion-no-margin">Finalizar</ion-button>
+    </div>
+</ion-content>

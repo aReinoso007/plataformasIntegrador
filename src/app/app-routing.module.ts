@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./shared/pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'direccion',
-    loadChildren: () => import('./shared/pages/direccion/direccion.module').then( m => m.DireccionPageModule)
+    path: 'userinfo',
+    loadChildren: () => import('./shared/pages/userInfo/userinfo.module').then( m => m.UserinfoPageModule)
   },
   {
     path: 'solicitar',
@@ -66,7 +66,8 @@ const routes: Routes = [
   {
     path: 'perfil/:id',
     loadChildren: () => import('./shared/pages/perfil/perfil.module').then( m => m.PerfilPageModule)
-  },  {
+  },
+  {
     path: 'about',
     loadChildren: () => import('./shared/pages/about/about.module').then( m => m.AboutPageModule)
   },
