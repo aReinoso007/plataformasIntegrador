@@ -12,8 +12,7 @@ export class LoginPage implements OnInit {
   correo: string;
   contrasena: string;
 
-  constructor(private auth: AuthService, 
-    private router: Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
