@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title>Solicitud</ion-title>
+    <ion-toolbar color="danger">
+        <ion-title color="dark">Solicitud</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -51,11 +51,11 @@
         </div>
 
         <div *ngIf="current_user?.rol == 'user'">
-            <h2 color="primary">Respuestas</h2>
+            <h2 style="color: brown;">Respuestas</h2>
 
             <ion-list>
                 <ion-item *ngIf="no_respuestas == 0">
-                    <ion-label>Todavía no recibes ninguna respuesta</ion-label>
+                    <ion-label>No hay respuesta</ion-label>
                 </ion-item>
 
                 <ion-item-sliding *ngFor='let respuesta of empresas' color="primary-tint">

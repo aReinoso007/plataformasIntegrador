@@ -1,9 +1,9 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="danger">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Dashboard Usuario</ion-title>
+        <ion-title color="dark"> Dashboard Usuario</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-list>
 
         <ion-item>
-            <ion-label>Servicios disponibles</ion-label>
+            <ion-label style="text-align:center;">Servicios disponibles</ion-label>
         </ion-item>
 
         <ion-item>
@@ -31,17 +31,14 @@
         </ion-item>
 
         <ion-item>
-            <ion-label class="ion-text-wrap">
-                Envie la solicitud y un proveedor de servicios se contactara
+            <ion-label class="ion-text-wrap" style="text-align:center;">
+                Envie la solicitud y un proveedor de servicios se contactara.
             </ion-label>
         </ion-item>
-        <ng-container>
-            <ion-list style="text-align:center">
-                <ion-item >
-                    <ion-button size="default" shape="round" (click)="solicitarServicio()">Solicitar servicio</ion-button>
-                </ion-item>
-            </ion-list>
-        </ng-container>
+
+        <div style="text-align: center;">
+            <ion-button shape="round" fill="outline" color="danger" size="default" (click)="solicitarServicio()">Solicitar servicio</ion-button>
+        </div>
     </ion-list>
 
 </ion-content>

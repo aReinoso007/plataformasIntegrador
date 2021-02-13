@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-    <ion-toolbar color="primary">
-        <ion-title text-center>Iniciar Sesión</ion-title>
+    <ion-toolbar color="danger">
+        <ion-title text-center color="dark">Iniciar Sesión</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -18,15 +18,14 @@
     </ion-list>
 
     <div class="ion-padding ">
-        <ion-button expand="block " type="submit " (click)="login() " class="ion-no-margin ">Iniciar Sesión</ion-button>
+        <ion-button expand="block " type="submit " (click)="login() " color="danger"> Iniciar Sesión</ion-button>
     </div>
 
-    <div class="ion-padding ">
-        <ion-label (click)="registrarse() " color="secondary">Registrarme</ion-label>
+    <div style="text-align: center;">
+        <ion-button shape="round" fill="outline" (click)="registrarse() " color="danger">Registrarse</ion-button>
     </div>
-
-    <div class="ion-padding ">
-        <ion-label text-center (click)="loginProveedor() " color="secondary">Ingresar como Proveedor</ion-label>
+    <div style="text-align: center;">
+        <ion-button shape="round" fill="outline" (click)="loginProveedor() " color="danger">Ingresar como Proveedor</ion-button>
     </div>
 
 </ion-content>
