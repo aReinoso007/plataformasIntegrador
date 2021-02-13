@@ -16,15 +16,19 @@
             </ion-select>
           </ion-item>
 
-        <ion-item>
-            <ion-label position="floating">Calle Principal</ion-label>
-            <ion-input type="text" [(ngModel)]="info.callePrincipal"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="floating">Calle Secundaria</ion-label>
-            <ion-input type="text" [(ngModel)]="info.calleSecundaria"></ion-input>
-        </ion-item>
+        <div>
+            <agm-map [latitude]='lat' [longitude]='lng' (centerChange)="newAddress($event)" >
+                <agm-marker 
+                    [latitude]="lat" 
+                    [longitude]="lng">
+                </agm-marker>
+            
+                <agm-marker [latitude]="centerLocation.latitude" [longitude]="centerLocation.longitude" [iconUrl]="icons.pointer" #centerPosition>
+                  <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
+                </agm-marker>
+            
+            </agm-map>
+        </div>
 
         <ion-item>
             <ion-label position="floating">Referencia</ion-label>
