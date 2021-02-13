@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./shared/pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'userinfo',
+  path: 'userinfo',
     loadChildren: () => import('./shared/pages/userInfo/userinfo.module').then( m => m.UserinfoPageModule)
   },
   {
@@ -89,7 +89,6 @@ const routes: Routes = [
   }
  
 ];
-
 
 @NgModule({
   imports: [
