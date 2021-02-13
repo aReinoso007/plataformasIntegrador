@@ -19,9 +19,8 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./shared/pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
-  {
-    path: 'direccion',
-    loadChildren: () => import('./shared/pages/direccion/direccion.module').then( m => m.DireccionPageModule)
+    path: 'userinfo',
+    loadChildren: () => import('./shared/pages/userInfo/userinfo.module').then( m => m.UserinfoPageModule)
   },
   {
     path: 'solicitar',
@@ -40,16 +39,32 @@ const routes: Routes = [
     loadChildren: () => import('./shared/pages/solicitud/solicitud.module').then( m => m.SolicitudPageModule)
   },
   {
-    path: 'mensajes/:id',
-    loadChildren: () => import('./shared/pages/mensajes/mensajes.module').then( m => m.MensajesPageModule)
-  },
-  {
     path: 'solicitudes',
     loadChildren: () => import('./shared/pages/solicitudes/solicitudes.module').then( m => m.SolicitudesPageModule)
   },
   {
     path: 'respuestas',
     loadChildren: () => import('./shared/pages/respuestas/respuestas.module').then( m => m.RespuestasPageModule)
+  },
+  {
+    path: 'trabajos',
+    loadChildren: () => import('./shared/pages/trabajos/trabajos.module').then( m => m.TrabajosPageModule)
+  },
+  {
+    path: 'mis-trabajos',
+    loadChildren: () => import('./shared/pages/mis-trabajos/mis-trabajos.module').then( m => m.MisTrabajosPageModule)
+  },
+  {
+    path: 'calificar/:empresa/:usuario/:solicitud',
+    loadChildren: () => import('./shared/pages/calificar/calificar.module').then( m => m.CalificarPageModule)
+  },
+  {
+    path: 'perfil/:id',
+    loadChildren: () => import('./shared/pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./shared/pages/about/about.module').then( m => m.AboutPageModule)
   },
   {
     path: 'trabajos',
