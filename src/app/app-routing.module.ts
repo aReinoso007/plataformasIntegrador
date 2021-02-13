@@ -19,7 +19,6 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./shared/pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
-  {
     path: 'userinfo',
     loadChildren: () => import('./shared/pages/userInfo/userinfo.module').then( m => m.UserinfoPageModule)
   },
@@ -68,18 +67,26 @@ const routes: Routes = [
     loadChildren: () => import('./shared/pages/about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'tutorial',
-    loadChildren: () => import('./shared/pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
+    path: 'trabajos',
+    loadChildren: () => import('./shared/pages/trabajos/trabajos.module').then( m => m.TrabajosPageModule)
   },
   {
-    path: 'tutorial-empresas',
-    loadChildren: () => import('./shared/pages/tutorial-empresas/tutorial-empresas.module').then( m => m.TutorialEmpresasPageModule)
+    path: 'mis-trabajos',
+    loadChildren: () => import('./shared/pages/mis-trabajos/mis-trabajos.module').then( m => m.MisTrabajosPageModule)
+  },
+  {
+    path: 'calificar/:empresa/:usuario/:solicitud',
+    loadChildren: () => import('./shared/pages/calificar/calificar.module').then( m => m.CalificarPageModule)
+  },
+  {
+    path: 'perfil/:id',
+    loadChildren: () => import('./shared/pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./shared/pages/about/about.module').then( m => m.AboutPageModule)
   }
-
-
-
-
-
+ 
 ];
 
 @NgModule({
