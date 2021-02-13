@@ -1,11 +1,13 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title>Iniciar Sesión Empresas</ion-title>
+        <ion-title>Iniciar Sesión Proveedor</ion-title>
+        <br>
+
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <img class="logo" src=" assets/logo.jpg ">
+    <img class="logo" src=" assets/proveedor.jpg ">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
         <ion-item>
             <ion-label position="floating">Correo</ion-label>
@@ -17,8 +19,11 @@
         </ion-item>
     </ion-list>
 
+
+
     <div class="ion-padding">
         <ion-button expand="block" type="submit" (click)="login()" class="ion-no-margin">Iniciar Sesión</ion-button>
+        <br>
+        <ion-button expand="block" type="submit" routerLink="/folder/folder" class="ion-no-margin">Regresar </ion-button>
     </div>
-
 </ion-content>

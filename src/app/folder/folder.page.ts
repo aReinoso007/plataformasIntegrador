@@ -41,7 +41,7 @@ export class FolderPage implements OnInit {
     this.router.navigate(['registro']);
   }
 
-  loginEmpresa() {
+  loginProveedor() {
     this.router.navigate(['login']);
   }
 
