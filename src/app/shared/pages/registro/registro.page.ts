@@ -29,7 +29,7 @@ export class RegistroPage implements OnInit {
     } else {
       if (error === undefined) {
         this.auth.emailPasswordLogin(this.correo, this.contrasena, 'user').then(res => {
-          this.router.navigate(['direccion']);
+          this.router.navigate(['userinfo']);
         })
       } else {
         let e = JSON.stringify(error)

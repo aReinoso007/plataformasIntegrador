@@ -1,18 +1,60 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Direccion } from '../models/direccion';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DireccionService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor() { 
 
-  insertDireccion(direccion: Direccion) {
-      const refDireccion = this.afs.collection('users')
-      direccion.uid = this.afs.createId()
-      const param = JSON.parse(JSON.stringify(direccion));
-      refDireccion.doc(direccion.uid_usuario).collection<any>("direcciones").doc(direccion.uid).set(param, {merge:true})
   }
+
+  async getCurrentLocation(withAddress: boolean = true): Promise<any> {
+    let location: any = {};
+
+    return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      var options = {
+        frequency: 1000,
+        timeout: 15000,
+        enableHighAccuracy: true
+      };
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          location.latitude = position.coords.latitude;
+          location.longitude = position.coords.longitude;
+          if (withAddress) {
+            let geocoder = new google.maps.Geocoder();
+            let latlng = { lat: location.latitude, lng: location.longitude };
+            geocoder.geocode({ location: latlng }, (results, status) => {
+              if (results != null && results != undefined) {
+                location.address = results[0].formatted_address;
+              } //end if
+              resolve(location);
+            });
+          } else {
+            resolve(location);
+          } //end if
+        },
+        error => {
+          resolve(null);
+        },
+        options
+      );
+    } //end if
+  });
+  } 
+  
+  async getAddressOfLocation(location: any) {
+    let geocoder = new google.maps.Geocoder();
+    let latlng = { lat: location.latitude, lng: location.longitude };
+    geocoder.geocode({ location: latlng }, (results, status) => {
+      if (results != null) {
+        location.address = results[0].formatted_address;
+        return location.address;
+      } 
+    });
+  } 
+  
+  
 }

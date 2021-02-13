@@ -57,7 +57,7 @@ export class AuthService {
       this.loading.dismiss();
       return await user.updateProfile({
         displayName: name,
-        photoURL: "https://firebasestorage.googleapis.com/v0/b/contactosdb-e7de3.appspot.com/o/root%2Fuser.JPG?alt=media&token=1aadf8fe-8a67-440d-8fe3-e60e3051a4b6"
+        photoURL: "https://www.seekpng.com/png/full/356-3562377_personal-user.png"
       });
     } catch (err) {
       console.error("Error" +  JSON.stringify(err));
