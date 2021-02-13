@@ -5,8 +5,9 @@ export class Info{
     genero: string;
     uid_usuario: string;
 
-    callePrincipal: string;
-    calleSecundaria: string;
+    longitud: string;
+    latitud: string;
+    direccion: string;
     referencia: string;
     numeroCasa: string;
 }
