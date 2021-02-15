@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SolicitudService } from '../../services/solicitud.service';
 import { Respuesta } from '../../models/respuesta';
+import { Solicitudes } from '../../models/solicitudes';
 
 @Component({
   selector: 'app-inicio-e',
@@ -14,10 +15,9 @@ export class InicioEPage implements OnInit {
 
   user: any;
   servicios = []
-  solicitudes: Observable<any[]>
-
+  //solicitudes: Observable<any[]>;
+  solicitudes: any[] = [];
   resultados = []
-
   constructor(private auth: AuthService,
     private activatedRoute: ActivatedRoute,
     public router: Router,
@@ -28,15 +28,11 @@ export class InicioEPage implements OnInit {
       this.user = user;
       if (user != null) {
         this.servicios = user.servicios;
-        this.solicitudes = this.solicitudservice.getSolicitudes();
-
-        this.solicitudes.subscribe(data => {
-          this.resultados.splice(0, this.resultados.length)
-          for (let aux of data) {
-            let a = this.servicios.filter(value => aux.servicios.includes(value))
-            if (a.length > 0)
-              this.resultados.push(aux)
-          }
+        this.solicitudservice.getSolicitudes()
+        .subscribe(data =>{
+          this.solicitudes = JSON.parse(JSON.stringify(data));
+          this.resultados = this.solicitudes;
+          console.log("solicitudes "+this.solicitudes[0].descripcion);
         })
       }
     })

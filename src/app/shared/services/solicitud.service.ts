@@ -30,7 +30,8 @@ export class SolicitudService {
 
   getSolicitudes(): Observable<any[]> {
     return this.afs.collection('solicitudes',
-    ref => ref.where("estado", "==", "solicitando")).valueChanges();
+            ref => ref.where("estado", "==", "solicitando")).valueChanges();
+    
   }
 
   getSolicitudByUsuario(tipo: string, uid_usuario: string, estado: string): Observable<any[]> {
