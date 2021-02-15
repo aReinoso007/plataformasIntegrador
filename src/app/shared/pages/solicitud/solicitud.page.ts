@@ -18,20 +18,20 @@ import { DireccionService } from '../../services/direccion.service';
 })
 export class SolicitudPage implements OnInit {
 
-  solicitud: Observable<any>
-  respuestas: Observable<any>
-  proveedores = []
-  ids: any[] = []
-  usuario: Observable<any>
-  current_user: any
+  solicitud: Observable<any>;
+  respuestas: Observable<any>;
+  proveedores = [];
+  ids: any[] = [];
+  usuario: Observable<any>;
+  current_user: any;
 
-  id: string
+  id: string;
 
-  no_respuestas: number = 0
-  enviar: boolean = false
-  mensaje: boolean = true
+  no_respuestas: number = 0;
+  enviar: boolean = false;
+  mensaje: boolean = true;
 
-  res: string
+  res: string;
 
   respuesta: Respuesta = new Respuesta;
   solicitudAceptada: Solicitud = new Solicitud;
@@ -150,7 +150,7 @@ export class SolicitudPage implements OnInit {
 
     const alert = await this.alertController.create({
       header: 'Puedes enviar un mensaje!',
-      message: 'Indica en qué puedes ayudar, explica por qué eres el mejor para este trabajo (:',
+      message: 'Explicanos mas por favor (:',
       inputs: [
         {
           name: 'msg',
@@ -204,7 +204,7 @@ export class SolicitudPage implements OnInit {
 
     this.solicitud.subscribe(async data => {
       if (data.estado != "solicitando") {
-        this.toast('Ya has contratado a alguien para esta tarea!');
+        this.toast('Esta solicitud ya ha sido contestada!');
       } else {
         const alert = await this.alertController.create({
           header: 'Agenda tu cita',

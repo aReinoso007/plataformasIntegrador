@@ -27,7 +27,7 @@
                 {{solicitud.address}}
             </ion-label>
         </ion-item>
-        <div>
+        <div *ngIf="solicitud.address !== undefined">
             <agm-map [latitude]='lat' [longitude]='long'>
                 <agm-marker [latitude]="solicitud.latitude" [longitude]="solicitud.longitude" [iconUrl]="icons.center" #centerPosition>
                   <agm-info-window><strong>{{solicitud.address}}</strong></agm-info-window>
