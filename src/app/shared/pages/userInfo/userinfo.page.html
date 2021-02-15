@@ -17,10 +17,10 @@
           </ion-item>
 
         <div>
-            <agm-map [latitude]='lat' [longitude]='lng' (centerChange)="newAddress($event)" >
+            <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)" >
                 <agm-marker 
                     [latitude]="lat" 
-                    [longitude]="lng">
+                    [longitude]="long">
                 </agm-marker>
             
                 <agm-marker [latitude]="centerLocation.latitude" [longitude]="centerLocation.longitude" [iconUrl]="icons.pointer" #centerPosition>
