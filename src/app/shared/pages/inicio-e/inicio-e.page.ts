@@ -29,7 +29,7 @@ export class InicioEPage implements OnInit {
       if (user != null) {
         this.servicios = user.servicios;
         this.solicitudes = this.solicitudservice.getSolicitudes();
-
+        console.log('Solicitudes: '+this.solicitudes)
         this.solicitudes.subscribe(data => {
           this.resultados.splice(0, this.resultados.length)
           for (let aux of data) {
