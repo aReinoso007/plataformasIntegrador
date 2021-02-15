@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="danger">
         <ion-title>Terminar solicitud</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -7,7 +7,7 @@
 <ion-content>
     <ion-list lines="full">
         <ion-item>
-            <ion-text color="primary">
+            <ion-text color="danger">
                 <h4>Por favor, califica el servicio que has recibido</h4>
             </ion-text>
         </ion-item>
@@ -24,7 +24,7 @@
         <app-image-upload [icon]=" 'library' " [type]=" 'library' " (uploadFinished)="imagenCargada($event) "></app-image-upload>
 
         <ion-item>
-            <ion-button shape="round" size="default" (click)="upload() ">Enviar</ion-button>
+            <ion-button color="danger" shape="round" size="default" (click)="upload() ">Enviar</ion-button>
         </ion-item>
     </ion-list>
 </ion-content>

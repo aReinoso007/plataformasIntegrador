@@ -1,6 +1,9 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>respuestas</ion-title>
+    <ion-toolbar color="danger">
+        <ion-title style="color: black;">respuestas</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -14,6 +17,6 @@
         </ion-item>
     </ion-list>
 
-    <ion-button (click)="mostrar()"></ion-button>
+    <ion-button color="danger" (click)="mostrar()"></ion-button>
 
 </ion-content>

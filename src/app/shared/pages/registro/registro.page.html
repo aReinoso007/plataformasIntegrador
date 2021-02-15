@@ -1,6 +1,9 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title>Registro</ion-title>
+    <ion-toolbar color="danger">
+        <ion-title style="color: black;">Registro</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -31,6 +34,6 @@
     </ion-list>
 
     <div class="ion-padding">
-        <ion-button expand="block" type="submit" (click)="registro()" class="ion-no-margin">Continuar</ion-button>
+        <ion-button color="danger" expand="block" type="submit" (click)="registro()" class="ion-no-margin">Continuar</ion-button>
     </div>
 </ion-content>
