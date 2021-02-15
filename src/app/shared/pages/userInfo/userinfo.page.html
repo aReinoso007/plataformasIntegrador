@@ -17,14 +17,16 @@
         </ion-item>
 
         <div>
-            <agm-map [latitude]='lat' [longitude]='lng' (centerChange)="newAddress($event)">
-                <agm-marker [latitude]="lat" [longitude]="lng">
+            <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)" >
+                <agm-marker 
+                    [latitude]="lat" 
+                    [longitude]="long">
                 </agm-marker>
-
+            
                 <agm-marker [latitude]="centerLocation.latitude" [longitude]="centerLocation.longitude" [iconUrl]="icons.pointer" #centerPosition>
-                    <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
+                  <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
                 </agm-marker>
-
+            
             </agm-map>
         </div>
 

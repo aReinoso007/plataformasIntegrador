@@ -65,8 +65,8 @@ export class TrabajosPage implements OnInit {
   async terminar(empresa, usuario, solicitud) {
     
     const alert = await this.alertController.create({
-      header: '¿Se ha resulto tu problema?',
-      message: 'Por favor, califica el servicio que has recibido y cuéntanos qué tal ha sido, tu opimión es muy importante',
+      header: '¿Como calificaria els servicio?',
+      message: 'Por favor, dejanos un comentario en cuanto a este proveedor de servicios',
       buttons: [
         {
           text: 'Cancelar',

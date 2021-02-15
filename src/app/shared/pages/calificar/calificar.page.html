@@ -20,11 +20,10 @@
             <ion-label position="floating">Comentarios:</ion-label>
             <ion-textarea rows="6" required type="text" [(ngModel)]="comentario.comentario"></ion-textarea>
         </ion-item>
-
-        <app-image-upload [icon]=" 'library' " [type]=" 'library' " (uploadFinished)="imagenCargada($event) "></app-image-upload>
-
         <ion-item>
-            <ion-button color="danger" shape="round" size="default" (click)="upload() ">Enviar</ion-button>
+            <ion-button (click)="terminarSolicitud()"  shape="round" fill="outline" expand="full">Enviar</ion-button>
         </ion-item>
+
     </ion-list>
+    
 </ion-content>

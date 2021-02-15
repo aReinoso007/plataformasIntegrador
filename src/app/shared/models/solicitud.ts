@@ -11,5 +11,8 @@ export class Solicitud {
     galeria_despues: [];
     servicios: [];
     comentario: string;
-    calificacion: number
+    calificacion: number;
+    latitude: string;
+    longitude: string;
+    address: string;
 }

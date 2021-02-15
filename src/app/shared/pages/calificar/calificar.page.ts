@@ -83,67 +83,11 @@ export class CalificarPage implements OnInit {
     console.log(rate)
   }
 
-  imagenCargada(e) {
-    this.imagenes.push(e);
-  }
-
   calificar(e) {
     this.comentario.calificacion = e
     this.solicitudTerminada.calificacion = e
   }
 
-  async upload() {
-
-    console.log(this.imagenes.length)
-
-    if (this.imagenes.length > 0) {
-      this.solicitudService.uploadFiles(this.imagenes)
-        .then(async values => {
-          if (values == null) {
-            alert("error")
-            return
-          } else {
-            this.imagenes.map(async file => {
-              this.urls.push(file.url)
-            })
-            await this.ask()
-          }
-        })
-        .catch(err => {
-          console.error("Error ", JSON.stringify(err));
-          alert(JSON.stringify(err))
-        });
-    } else {
-      await this.ask();
-    }
-
-  }
-
-  async ask() {
-    if (this.urls.length == 0) {
-      const alert = await this.alertController.create({
-        header: '¿Seguro no deseas agregar imágenes para mostrar el trabajo final?',
-        buttons: [
-          {
-            text: 'Agregar imágenes',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: () => {
-              console.log('Confirm Cancel');
-            }
-          }, {
-            text: 'Enviar sin imágenes',
-            handler: () => {
-              this.terminarSolicitud()
-            }
-          }
-        ]
-      });
-      await alert.present();
-    } else {
-      this.terminarSolicitud()
-    }
-  }
 
   terminarSolicitud() {
     this.solicitudTerminada.galeria_despues = this.urls

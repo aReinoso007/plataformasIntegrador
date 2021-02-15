@@ -8,6 +8,7 @@ import { SolicitarPageRoutingModule } from './solicitar-routing.module';
 
 import { SolicitarPage } from './solicitar.page';
 import { ImageUploadComponent } from '../../../components/image-upload/image-upload.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,10 @@ import { ImageUploadComponent } from '../../../components/image-upload/image-upl
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    SolicitarPageRoutingModule
+    SolicitarPageRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyCT9wzsIIAkW95uHWVvCbBEP-xtjNbJPow'
+    })
   ],
   declarations: [SolicitarPage, ImageUploadComponent],
   exports: [ImageUploadComponent]

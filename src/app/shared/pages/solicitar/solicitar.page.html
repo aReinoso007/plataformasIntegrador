@@ -14,6 +14,23 @@
             <ion-textarea rows="6" required type="text" [(ngModel)]="solicitud.descripcion"></ion-textarea>
         </ion-item>
 
+        <div>
+            <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)" >
+                <agm-marker 
+                    [latitude]="lat" 
+                    [longitude]="long">
+                </agm-marker>
+            
+                <agm-marker [latitude]="centerLocation.latitude" [longitude]="centerLocation.longitude" [iconUrl]="icons.pointer" #centerPosition>
+                  <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
+                </agm-marker>
+            
+            </agm-map>
+        </div>
+        <ion-item>
+            <ion-label>{{solicitud.address}}</ion-label>
+        </ion-item>
+
         <ion-item>
             <ion-label>Seleccionar servicios</ion-label>
             <ion-select multiple [(ngModel)]="solicitud.servicios">
@@ -23,14 +40,11 @@
             </ion-select>
         </ion-item>
 
-        <app-image-upload [icon]=" 'library' " [type]=" 'library' " (uploadFinished)="imagenCargada($event) "></app-image-upload>
-
-
 
 
         <div style="text-align: center;">
 
-            <ion-button shape="round" fill="outline" color="danger" (click)="upload() ">subir</ion-button>
+            <ion-button shape="round" fill="outline" color="danger" (click)="upload() ">Solicitar</ion-button>
         </div>
 
 
