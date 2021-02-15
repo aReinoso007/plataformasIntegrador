@@ -95,8 +95,8 @@ export class AuthService {
         webClientId: environment.googleWebClientId,
         offline: true
       });
-      const googleCredential = firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken);
-      const firebaseUser = await firebase.auth().signInWithCredential(googleCredential);
+      const googleCredential = firebase.default.auth.GoogleAuthProvider.credential(gplusUser.idToken);
+      const firebaseUser = await firebase.default.auth().signInWithCredential(googleCredential); 
       return await this.updateUserData(firebaseUser, "google");
     } catch (err) {
       console.error("Error Login google - native" + JSON.stringify(err));
@@ -106,7 +106,7 @@ export class AuthService {
 
   async webGoogleLogin(): Promise<void> {
     try {
-      const provider = new firebase.auth.GoogleAuthProvider();
+      const provider = new firebase.default.auth.GoogleAuthProvider();
       const credential = await this.afAuth.signInWithPopup(provider);
       return await this.updateUserData(credential.user, "google");
     } catch (err) {
@@ -124,8 +124,8 @@ export class AuthService {
       });  
       await this.loading.present();
 
-      const emailCredential = firebase.auth.EmailAuthProvider.credential(email, password);
-      const firebaseUser = await firebase.auth().signInWithCredential(emailCredential);
+      const emailCredential = firebase.default.auth.EmailAuthProvider.credential(email, password);
+      const firebaseUser = await firebase.default.auth().signInWithCredential(emailCredential);
       if (rol === 'user') {
         this.loading.dismiss();
         return await this.updateUserData(firebaseUser.user, "email");
@@ -138,7 +138,6 @@ export class AuthService {
       return err;
     } 
   } 
-
 
   //-------------------------------------
 
