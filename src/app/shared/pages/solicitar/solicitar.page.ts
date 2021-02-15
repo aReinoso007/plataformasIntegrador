@@ -26,7 +26,7 @@ export class SolicitarPage implements OnInit {
   solicitud: Solicitud = new Solicitud;
 
 
-  title = 'AGM (Angular google maps)';
+  title = 'Especifique la direccion';
   lat = -2.383980;
   long = -77.503930;
   zoom=7;

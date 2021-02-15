@@ -8,13 +8,17 @@ import { SolicitudPageRoutingModule } from './solicitud-routing.module';
 
 import { SolicitudPage } from './solicitud.page';
 import { RateComponent } from '../../../components/rate/rate.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SolicitudPageRoutingModule
+    SolicitudPageRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyCT9wzsIIAkW95uHWVvCbBEP-xtjNbJPow'
+    })
   ],
   declarations: [SolicitudPage, RateComponent],
   exports: [RateComponent]

@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, ToastController, ModalController } from '@ionic/angular';
 import { Solicitud } from '../../models/solicitud';
 import { ChatComponent } from '../../../components/chat/chat.component';
+import { DireccionService } from '../../services/direccion.service';
 
 @Component({
   selector: 'app-solicitud',
@@ -19,12 +20,10 @@ export class SolicitudPage implements OnInit {
 
   solicitud: Observable<any>
   respuestas: Observable<any>
-  empresas = []
-  //empresas: { [uid: string]: any} = {}
+  proveedores = []
   ids: any[] = []
   usuario: Observable<any>
   current_user: any
-  //current_user: Observable<any>
 
   id: string
 
@@ -37,6 +36,33 @@ export class SolicitudPage implements OnInit {
   respuesta: Respuesta = new Respuesta;
   solicitudAceptada: Solicitud = new Solicitud;
 
+
+  title = 'Direccion del cliente';
+  lat = -2.383980;
+  long = -77.503930;
+  zoom=7;
+
+  currentLocation: any = {
+    latitude: null,
+    longitude: null,
+    street: "",
+    active: true
+  };
+
+  centerLocation: any = {
+    latitude: null,
+    longitude: null,
+    address: "",
+  };
+
+  icons = {
+    client: "https://cdn1.iconfinder.com/data/icons/ecommerce-61/48/eccomerce_-_location-48.png",
+    shop: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/48/Map-Marker-Marker-Outside-Chartreuse.png",
+    center: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/48/Map-Marker-Marker-Inside-Chartreuse.png",
+    pointer: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/48/Map-Marker-Ball-Azure.png"
+  };
+
+
   constructor(private afs: AngularFirestore,
     private route: ActivatedRoute,
     private solicitudService: SolicitudService,
@@ -45,13 +71,14 @@ export class SolicitudPage implements OnInit {
     private auth: AuthService,
     private toastController: ToastController,
     private alertController: AlertController,
-    private modal: ModalController) { }
+    private modal: ModalController,
+    private direccionService: DireccionService
+    ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id')
     this.solicitud = this.solicitudService.getSolicitud(this.id)
     this.respuesta.uid_solicitud = this.id
-
     this.solicitud.subscribe(data => {
       this.usuario = this.usuarioService.getUsuario(data.uid_usuario)
       this.respuesta.uid_usuario = data.uid_usuario
@@ -83,7 +110,7 @@ export class SolicitudPage implements OnInit {
 
           this.respuestas.subscribe(respuestas => {
             this.no_respuestas = respuestas.length
-            this.empresas.splice(0, this.empresas.length)
+            this.proveedores.splice(0, this.proveedores.length)
             for (let respuesta of respuestas) {
               let u = this.usuarioService.getUsuario(respuesta.uid_empresa)
               u.subscribe(datos => {
@@ -106,7 +133,7 @@ export class SolicitudPage implements OnInit {
                   uid_respuesta: respuesta.uid,
                   uid_solicitud: respuesta.uid_solicitud
                 }
-                this.empresas.push(nueva_respuesta)
+                this.proveedores.push(nueva_respuesta)
               })
             }
           })
