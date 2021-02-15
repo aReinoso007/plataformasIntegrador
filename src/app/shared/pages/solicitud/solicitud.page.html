@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar color="danger">
         <ion-title color="dark">Solicitud</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -15,7 +18,7 @@
                 <ion-label>
                     <h3>{{usuario.displayName}}</h3>
                 </ion-label>
-                <ion-button size="small" slot="end" (click)="verMas(usuario.uid)">ver más</ion-button>
+                <ion-button color="danger" size="small" slot="end" (click)="verMas(usuario.uid)">Perfil</ion-button>
             </ion-item>
         </div>
 
@@ -43,7 +46,7 @@
 
             <ion-item *ngIf="(usuario | async) as usuario" [hidden]="mensaje">
                 <ion-label class="ion-text-wrap ion-text-center" color="secondary">
-                    Gracias por tu ayuda! Tu respuesta se ha eviado a {{usuario.displayName}}.
+                    Escribenos para más información {{usuario.displayName}}.
                 </ion-label>
                 <ion-button (click)="enviarMensaje(res, respuesta.uid_solicitud)" color="success">
                     <ion-icon slot="icon-only" name="chatbubble-ellipses-outline"></ion-icon>

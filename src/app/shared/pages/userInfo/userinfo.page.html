@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title>direccion</ion-title>
+    <ion-toolbar color="danger">
+        <ion-title style="color: black;">Dirección</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -11,10 +11,10 @@
         <ion-item>
             <ion-label position="floating">Genero</ion-label>
             <ion-select [(ngModel)]="info.genero">
-              <ion-select-option value="Masculino">Masculino</ion-select-option>
-              <ion-select-option value="Femenino">Femenino</ion-select-option>
+                <ion-select-option value="Masculino">Masculino</ion-select-option>
+                <ion-select-option value="Femenino">Femenino</ion-select-option>
             </ion-select>
-          </ion-item>
+        </ion-item>
 
         <div>
             <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)" >
@@ -43,6 +43,6 @@
     </ion-list>
 
     <div class="ion-padding">
-        <ion-button expand="block" type="submit" (click)="addUserInfo()" class="ion-no-margin">Finalizar</ion-button>
+        <ion-button color="danger" expand="block" type="submit" (click)="addUserInfo()" class="ion-no-margin">Finalizar</ion-button>
     </div>
 </ion-content>

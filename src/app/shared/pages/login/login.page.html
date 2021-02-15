@@ -1,8 +1,9 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title>Iniciar Sesión Proveedor</ion-title>
-        <br>
-
+    <ion-toolbar color="danger">
+        <ion-title style="color: black;">Iniciar Sesión Proveedor</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -22,8 +23,8 @@
 
 
     <div class="ion-padding">
-        <ion-button expand="block" type="submit" (click)="login()" class="ion-no-margin">Iniciar Sesión</ion-button>
+        <ion-button color="danger" expand="block" type="submit" (click)="login()" class="ion-no-margin">Iniciar Sesión</ion-button>
         <br>
-        <ion-button expand="block" type="submit" routerLink="/folder/folder" class="ion-no-margin">Regresar </ion-button>
+        <ion-button color="danger" expand="block" type="submit" routerLink="/folder/folder" class="ion-no-margin">Regresar </ion-button>
     </div>
 </ion-content>

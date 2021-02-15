@@ -1,16 +1,16 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="danger">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Próximos Trabajos</ion-title>
+        <ion-title style="color: black;">Próximos Trabajos</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
         <ion-item *ngIf="proximos.length == 0">
-            <ion-label>No tienes trabajos pendientes</ion-label>
+            <ion-label>No hay trabajos pendientes</ion-label>
         </ion-item>
 
         <div *ngFor='let trabajo of proximos'>
