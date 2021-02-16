@@ -149,24 +149,25 @@ export class SolicitudPage implements OnInit {
   async presentAlert() {
 
     const alert = await this.alertController.create({
-      header: 'Puedes enviar un mensaje!',
-      message: 'Explicanos mas por favor (:',
+      header: 'Cómo te ayudamos ?',
+      message: 'Explicanos más por favor (:',
       inputs: [
         {
           name: 'msg',
           type: 'textarea',
-          placeholder: 'Hola! Me encantaría ayudarte.'
+          placeholder: 'Puedes escribir aquí....'
         }],
       buttons: [
         {
+        
           text: 'Cancelar',
           role: 'cancel',
-          cssClass: 'secondary',
+          cssClass: 'danger',
           handler: () => {
             console.log('Confirm Cancel');
           }
         }, {
-          text: 'Enviar!',
+          text: 'Enviar',
           handler: (alertData) => {
             this.enviarAyuda(alertData.msg)
           }

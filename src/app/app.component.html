@@ -1,11 +1,10 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
-        <ion-menu contentId="main-content" type="overlay" *ngIf="(user | async) as user">
+        <ion-menu color="danger" contentId="main-content" type="overlay" *ngIf="(user | async) as user">
 
             <ion-content>
-
                 <ion-list id="inbox-list">
-                    <ion-item>
+                    <ion-item color="warning">
                         <ion-avatar slot="start">
                             <img [src]="user.photoURL" />
                         </ion-avatar>
@@ -40,20 +39,8 @@
                         </ion-item>
                     </ion-menu-toggle>
 
-                    <!--ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                            <ion-label>{{ p.title }}</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle-->
-
                     <div *ngIf="user?.rol == 'employee'">
-                        <!--ion-menu-toggle id="labels-list">
-                            <ion-item (click)="selectedIndex = 101" routerDirection="root" [routerLink]="'respuestas'" lines="none" detail="false" [class.selected]="selectedIndex == 101">
-                                <ion-icon slot="start" ios="warning-outline" md="warning-sharp"></ion-icon>
-                                <ion-label>Mis Respuestas</ion-label>
-                            </ion-item>
-                        </ion-menu-toggle-->
+
 
                         <ion-menu-toggle id="labels-list">
                             <ion-item (click)="selectedIndex = 102" routerDirection="root" [routerLink]="'mis-trabajos'" lines="none" detail="false" [class.selected]="selectedIndex == 102">

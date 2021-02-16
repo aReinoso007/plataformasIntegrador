@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar color="danger">
         <ion-title>Terminar solicitud</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -21,9 +24,9 @@
             <ion-textarea rows="6" required type="text" [(ngModel)]="comentario.comentario"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-button (click)="terminarSolicitud()"  shape="round" fill="outline" expand="full">Enviar</ion-button>
+            <ion-button color="danger" (click)="terminarSolicitud()" shape="round" fill="outline" expand="full">Enviar</ion-button>
         </ion-item>
 
     </ion-list>
-    
+
 </ion-content>

@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar color="danger">
         <ion-title style="color: black;">Dirección</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -9,7 +12,7 @@
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
 
         <ion-item>
-            <ion-label position="floating">Genero</ion-label>
+            <ion-label position="floating">Género</ion-label>
             <ion-select [(ngModel)]="info.genero">
                 <ion-select-option value="Masculino">Masculino</ion-select-option>
                 <ion-select-option value="Femenino">Femenino</ion-select-option>
@@ -17,16 +20,14 @@
         </ion-item>
 
         <div>
-            <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)" >
-                <agm-marker 
-                    [latitude]="lat" 
-                    [longitude]="long">
+            <agm-map [latitude]='lat' [longitude]='long' (centerChange)="newAddress($event)">
+                <agm-marker [latitude]="lat" [longitude]="long">
                 </agm-marker>
-            
+
                 <agm-marker [latitude]="centerLocation.latitude" [longitude]="centerLocation.longitude" [iconUrl]="icons.pointer" #centerPosition>
-                  <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
+                    <agm-info-window><strong>{{centerLocation.address}}</strong></agm-info-window>
                 </agm-marker>
-            
+
             </agm-map>
         </div>
 
@@ -36,7 +37,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-label position="floating">Numero de casa</ion-label>
+            <ion-label position="floating">Número de la casa</ion-label>
             <ion-input required type="text" [(ngModel)]="info.numeroCasa"></ion-input>
         </ion-item>
 

@@ -33,29 +33,26 @@
         <div *ngIf="solicitud.address !== undefined">
             <agm-map [latitude]='lat' [longitude]='long'>
                 <agm-marker [latitude]="solicitud.latitude" [longitude]="solicitud.longitude" [iconUrl]="icons.center" #centerPosition>
-                  <agm-info-window><strong>{{solicitud.address}}</strong></agm-info-window>
+                    <agm-info-window><strong>{{solicitud.address}}</strong></agm-info-window>
                 </agm-marker>
-            
+
             </agm-map>
         </div>
 
         <div *ngIf="current_user?.rol == 'employee'">
-            <ion-button shape="round" expand="block" (click)="presentAlert()" [hidden]="enviar">
+            <ion-button color="danger" shape="round" expand="block" (click)="presentAlert()" [hidden]="enviar">
                 ¡Enviar ayuda!
             </ion-button>
-
+            <!--############################# MENSAJES ####################################################-->
             <ion-item *ngIf="(usuario | async) as usuario" [hidden]="mensaje">
-                <ion-label class="ion-text-wrap ion-text-center" color="secondary">
-                    Escribenos para más información {{usuario.displayName}}.
+                <ion-label class="ion-text-wrap ion-text-center" color="danger">
+                    {{usuario.displayName}} Escribenos para más información.
                 </ion-label>
                 <ion-button (click)="enviarMensaje(res, respuesta.uid_solicitud)" color="success">
                     <ion-icon slot="icon-only" name="chatbubble-ellipses-outline"></ion-icon>
                 </ion-button>
             </ion-item>
 
-            <ion-label class="ion-text-center" [hidden]="mensaje" expand="block" color="tertiary">
-                Cancelar ayuda
-            </ion-label>
         </div>
 
         <div *ngIf="current_user?.rol == 'user'">
@@ -68,7 +65,7 @@
 
                 <ion-item-sliding *ngFor='let respuesta of proveedores' color="primary-tint">
                     <ion-item-options side="start">
-                        <ion-item-option (click)="aceptarAlert(respuesta.uid_sender)" color="secondary">
+                        <ion-item-option (click)="aceptarAlert(respuesta.uid_sender)" color="danger">
                             Aceptar Empresa
                         </ion-item-option>
                     </ion-item-options>
@@ -85,10 +82,10 @@
                     </ion-item>
 
                     <ion-item-options side="end">
-                        <ion-item-option (click)="verMas(respuesta.uid_sender)" color="tertiary">
+                        <ion-item-option (click)="verMas(respuesta.uid_sender)" color="danger">
                             <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
                         </ion-item-option>
-                        <ion-item-option (click)="enviarMensaje(respuesta.uid_respuesta, respuesta.uid_solicitud)" color="success">
+                        <ion-item-option (click)="enviarMensaje(respuesta.uid_respuesta, respuesta.uid_solicitud)" color="danger">
                             <ion-icon slot="icon-only" name="chatbubble-ellipses-outline"></ion-icon>
                         </ion-item-option>
                     </ion-item-options>
