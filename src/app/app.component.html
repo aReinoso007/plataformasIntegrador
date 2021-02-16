@@ -86,7 +86,7 @@
                 <div *ngIf="user?.rol == 'user'">
                     <ion-list id="labels-list">
                         <ion-menu-toggle id="labels-list">
-                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'tutorial'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
+                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'contactos'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
                                 <ion-icon slot="start" ios="help-outline" md="help-sharp"></ion-icon>
                                 <ion-label style="color: brown;">Contáctanos</ion-label>
                             </ion-item>
@@ -97,7 +97,7 @@
                 <div *ngIf="user?.rol == 'employee'">
                     <ion-list id="labels-list">
                         <ion-menu-toggle id="labels-list">
-                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'tutorial-empresas'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
+                            <ion-item (click)="selectedIndex = 105" routerDirection="root" [routerLink]="'contactos'" lines="none" detail="false" [class.selected]="selectedIndex == 105">
                                 <ion-icon slot="start" ios="help-outline" md="help-sharp"></ion-icon>
                                 <ion-label style="color: brown;">Contáctanos</ion-label>
                             </ion-item>

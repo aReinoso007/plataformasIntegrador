@@ -86,7 +86,11 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./shared/pages/about/about.module').then( m => m.AboutPageModule)
+  },  {
+    path: 'contactos',
+    loadChildren: () => import('./shared/pages/contactos/contactos.module').then( m => m.ContactosPageModule)
   }
+
  
 ];
 
